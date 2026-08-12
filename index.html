@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIVVI FINANCE | Consultoria Financeira para PMEs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0A2540; /* Azul Marinho Profundo */
+            --secondary: #00D4A0; /* Verde Menta/Turquesa Vibrante */
+            --accent: #FFD700; /* Dourado para destques */
+            --bg-dark: #0A2540;
+            --bg-light: #F8FAFC;
+            --text-dark: #1E293B;
+            --text-light: #64748B;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+            transition: padding 0.3s;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            font-size: 1.8rem;
+        }
+
+        .logo span {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 4px;
+            right: 0;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            left: 0;
+            background: var(--secondary);
+        }
+
+        .btn-nav {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(10, 37, 64, 0.2);
+        }
+
+        .btn-nav:hover {
+            background-color: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0A2540 0%, #14385e 100%);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 40px 60px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 212, 160, 0.15) 0%, rgba(10, 37, 64, 0) 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+
+        .hero-text h1 span {
+            color: var(--secondary);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        .btn-hero {
+            background-color: var(--secondary);
+            color: var(--primary);
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(0, 212, 160, 0.3);
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 160, 0.5);
+            background-color: var(--white);
+        }
+
+        .hero-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .hero-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+        }
+
+        .hero-card-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .hero-card-item i {
+            background: var(--secondary);
+            color: var(--primary);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            background: rgba(0, 212, 160, 0.1);
+            color: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* Problemas */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: var(--white);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .problem-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background: var(--bg-light);
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .problem-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        /* Sobre */
+        #sobre {
+            background-color: var(--white);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box h4 {
+            font-size: 3rem;
+            color: var(--secondary);
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat-box p {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .about-visual {
+            position: relative;
+            height: 400px;
+        }
+
+        .visual-circle {
+            position: absolute;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            color: var(--white);
+            transition: transform 0.3s;
+        }
+
+        .visual-circle:hover {
+            transform: scale(1.05);
+        }
+
+        .vc-1 {
+            background: linear-gradient(135deg, var(--primary), #14385e);
+            width: 250px;
+            height: 250px;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .vc-2 {
+            background: linear-gradient(135deg, var(--secondary), #00a37c);
+            width: 220px;
+            height: 220px;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+            color: var(--primary);
+        }
+
+        .visual-circle i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        /* Serviços */
+        #servicos {
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            background: var(--primary);
+            color: var(--secondary);
+            width: 100%;
+            padding: 30px;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .service-body {
+            padding: 30px;
+        }
+
+        .service-body h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .service-body p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .service-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            background: var(--bg-light);
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .service-meta div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-meta i {
+            color: var(--secondary);
+        }
+
+        /* Metodologia Timeline */
+        #metodologia {
+            background-color: var(--primary);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #metodologia .section-title, #metodologia .section-subtitle {
+            color: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: rgba(255,255,255,0.2);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--secondary);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 25px;
+            z-index: 1;
+        }
+
+        .timeline-item.left {
+            left: 0;
+        }
+
+        .timeline-item.left::after {
+            right: -10px;
+        }
+
+        .timeline-item.right {
+            left: 50%;
+        }
+
+        .timeline-item.right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            position: relative;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .timeline-content:hover {
+            transform: scale(1.03);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .timeline-content h2 {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .timeline-content p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: var(--white);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #14385e 100%);
+            color: var(--white);
+            padding: 80px 60px;
+            border-radius: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(10, 37, 64, 0.2);
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: var(--secondary);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .cta-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-box p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 212, 160, 0.3);
+        }
+
+        .btn-cta:hover {
+            transform: scale(1.05);
+            background-color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 60px 40px 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo i {
+            color: var(--secondary);
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-col p {
+            opacity: 0.7;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-contact a:hover {
+            opacity: 1;
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsivo */
+        @media (max-width: 968px) {
+            .nav-links { display: none; }
+            .hero-content { grid-template-columns: 1fr; }
+            .hero-card { display: none; }
+            .about-container { grid-template-columns: 1fr; gap: 40px; }
+            .about-visual { height: 300px; }
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item.right { left: 0%; }
+            .timeline-item.left::after, .timeline-item.right::after { left: 21px; }
+            .footer-container { grid-template-columns: 1fr; }
+            .hero-text h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fas fa-chart-line"></i>RIVVI<span>FINANCE</span></a>
+            <ul class="nav-links">
+                <li><a href="#problemas">O Problema</a></li>
+                <li><a href="#sobre">Quem Somos</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#metodologia">Metodologia</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="https://wa.me/5511952847382?text=Olá!%20Gostaria%20de%20agendar%20um%20diagnóstico%20gratuito." target="_blank" class="btn-nav">Diagnóstico Grátis</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Traduzimos os números do seu negócio em <span>decisões inteligentes.</span></h1>
+                <p>Consultoria financeira especializada para Pequenas e Médias Empresas. Acabe com a confusão entre faturamento e lucro e assuma o controle do seu fluxo de caixa.</p>
+                <a href="https://wa.me/5511952847382?text=Olá!%20Gostaria%20de%20agendar%20um%20diagnóstico%20gratuito." target="_blank" class="btn-hero">
+                    <i class="fab fa-whatsapp"></i> Agende um diagnóstico gratuitamente
+                </a>
+            </div>
+            <div class="hero-card">
+                <h3><i class="fas fa-exclamation-triangle"></i> Sintomas Comuns</h3>
+                <div class="hero-card-item"><i class="fas fa-times"></i> Fatura bem, mas o dinheiro não sobra</div>
+                <div class="hero-card-item"><i class="fas fa-times"></i> Confunde faturamento com lucro real</div>
+                <div class="hero-card-item"><i class="fas fa-times"></i> Não tem fluxo de caixa estruturado</div>
+                <div class="hero-card-item"><i class="fas fa-times"></i> Toma crédito sem avaliar o custo real</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- O Problema -->
+    <section id="problemas">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Desafios do Mercado</span>
+                <h2 class="section-title">O Problema que Resolvemos</h2>
+                <p class="section-subtitle">A maioria das PMEs no Brasil enfrenta barreiras financeiras que limitam o crescimento. Nós ajudamos a superar:</p>
+            </div>
+            <div class="problems-grid">
+                <div class="problem-card reveal">
+                    <i class="fas fa-search-dollar"></i>
+                    <h3>Falta de Visibilidade</h3>
+                    <p>Não sabem se o negócio está realmente lucrando ou apenas girando dinheiro. O lucro real fica escondido.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Caixa Descontrolado</h3>
+                    <p>Não têm fluxo de caixa estruturado, vivendo no improviso e sem previsibilidade para os próximos meses.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>Precificação Errada</h3>
+                    <p>Precificam mal produtos e serviços, comprometendo a rentabilidade sem perceber.</p>
+                </div>
+                <div class="problem-card reveal">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Crédito Sem Estratégia</h3>
+                    <p>Tomam crédito sem avaliar o custo real (CET), entrando em ciclos de endividamento que sufocam a operação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nós -->
+    <section id="sobre">
+        <div class="container about-container">
+            <div class="about-text reveal">
+                <span class="section-tag">Quem Somos</span>
+                <h2>Análise manual e personalizada por especialistas.</h2>
+                <p>A Rivvi Finance é formada por três profissionais com sólido conhecimento de mercado, especializada no atendimento de pequenas e médias empresas. </p>
+                <p>Acreditamos que planilhas genéricas não resolvem problemas complexos. Cada análise é realizada de forma manual e personalizada pelos nossos consultores, garantindo atenção total aos detalhes e às particularidades do seu negócio.</p>
+                <div class="about-stats">
+                    <div class="stat-box">
+                        <h4>100%</h4>
+                        <p>Atendimento Personalizado</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>3</h4>
+                        <p>Especialistas Financeiros</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual reveal">
+                <div class="visual-circle vc-1">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h4>Gestão de Caixa</h4>
+                </div>
+                <div class="visual-circle vc-2">
+                    <i class="fas fa-chart-pie"></i>
+                    <h4>Análise de Margens</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Nossas Soluções</span>
+                <h2 class="section-title">Serviços Rivvi Finance</h2>
+                <p class="section-subtitle">Soluções práticas para estruturar as finanças da sua empresa, do diagnóstico à ação.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+                    <div class="service-body">
+                        <h3>Diagnóstico Financeiro</h3>
+                        <p>Análise completa da saúde financeira: DRE, fluxo de caixa, margens e indicadores-chave. Relatório executivo com pontos de atenção e recomendações.</p>
+                        <div class="service-meta">
+                            <div><i class="fas fa-clock"></i> Prazo: 5 a 10 dias úteis</div>
+                            <div><i class="fas fa-file-alt"></i> Entrega: Relatório + Apresentação</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-cash-register"></i></div>
+                    <div class="service-body">
+                        <h3>Gestão de Fluxo de Caixa</h3>
+                        <p>Estruturação e acompanhamento mensal. Identificamos gargalos, antecipamos crises de liquidez e orientamos decisões com dados reais.</p>
+                        <div class="service-meta">
+                            <div><i class="fas fa-sync-alt"></i> Recorrente mensal</div>
+                            <div><i class="fas fa-file-alt"></i> Entrega: Painel + Reunião mensal</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-tags"></i></div>
+                    <div class="service-body">
+                        <h3>Precificação e Margens</h3>
+                        <p>Cálculo do custo real dos seus produtos/serviços e definição de preços que garantem rentabilidade sustentável sem perder competitividade.</p>
+                        <div class="service-meta">
+                            <div><i class="fas fa-clock"></i> Prazo: 7 a 15 dias úteis</div>
+                            <div><i class="fas fa-file-alt"></i> Entrega: Planilha + Relatório</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><i class="fas fa-coins"></i></div>
+                    <div class="service-body">
+                        <h3>Capital de Giro e Crédito</h3>
+                        <p>Avaliação das melhores opções de crédito no mercado, análise do CET e orientação sobre antecipação de recebíveis e linhas adequadas.</p>
+                        <div class="service-meta">
+                            <div><i class="fas fa-clock"></i> Prazo: 5 a 7 dias úteis</div>
+                            <div><i class="fas fa-file-alt"></i> Entrega: Relatório comparativo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodologia -->
+    <section id="metodologia">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag" style="background: rgba(255,255,255,0.1); color: var(--white);">Nosso Processo</span>
+                <h2 class="section-title">Como Trabalhamos</h2>
+                <p class="section-subtitle">Um processo simples, direto e focado em resultados práticos.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <h2>1. Reunião Inicial</h2>
+                        <p>Entendemos o negócio, levantamos dados e definimos o escopo do trabalho.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal">
+                    <div class="timeline-content">
+                        <h2>2. Coleta de Dados</h2>
+                        <p>Solicitamos extratos, DREs, planilhas e documentos necessários para análise.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <h2>3. Análise</h2>
+                        <p>Processamos os dados manualmente e elaboramos o diagnóstico ou entregável.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right reveal">
+                    <div class="timeline-content">
+                        <h2>4. Apresentação</h2>
+                        <p>Reunião de devolutiva com relatório executivo e plano de ação.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left reveal">
+                    <div class="timeline-content">
+                        <h2>5. Acompanhamento</h2>
+                        <p>Suporte pós-entrega e monitoramento de implementação das recomendações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contato" class="cta-section">
+        <div class="cta-box reveal">
+            <h2>Pronto para assumir o controle?</h2>
+            <p>Agende uma reunião de alinhamento de 30 minutos, sem compromisso. Vamos entender sua rotina financeira e mostrar como podemos ajudar.</p>
+            <a href="https://wa.me/5511952847382?text=Olá!%20Gostaria%20de%20agendar%20um%20diagnóstico%20gratuito." target="_blank" class="btn-cta">
+                <i class="fab fa-whatsapp"></i> Agende um diagnóstico gratuitamente
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo"><i class="fas fa-chart-line"></i>RIVVI<span>FINANCE</span></div>
+                <p>Consultoria Financeira para Pequenas e Médias Empresas. Traduzindo números em decisões inteligentes.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 10px;"><a href="#problemas" style="color: white; opacity: 0.8; text-decoration: none;">O Problema</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#sobre" style="color: white; opacity: 0.8; text-decoration: none;">Quem Somos</a></li>
+                    <li style="margin-bottom: 10px;"><a href="#servicos" style="color: white; opacity: 0.8; text-decoration: none;">Serviços</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <div class="footer-contact">
+                    <a href="mailto:rivvifinancecontato@gmail.com"><i class="fas fa-envelope"></i> rivvifinancecontato@gmail.com</a>
+                    <a href="https://wa.me/5511952847382" target="_blank"><i class="fab fa-whatsapp"></i> (11) 95284-7382</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Rivvi Finance. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para animação de revelação ao rolar a página
+        window.addEventListener('scroll', () => {
+            const reveals = document.querySelectorAll('.reveal');
+
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                } else {
+                    reveal.classList.remove('active');
+                }
+            });
+        });
+
+        // Adicionar classe active na carga inicial para elementos já visíveis
+        document.addEventListener('DOMContentLoaded', () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(reveal => {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveal.getBoundingClientRect().top;
+                const elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
